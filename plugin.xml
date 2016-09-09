@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.alvaroherrero.mac-imei-androidID"
+        version="1.0.0">
+    <engines>
+        <engine name="cordova" version=">=3.5.0" />
+    </engines>
+    <name>Imei, Mac and AndroidID Plugin</name>
+    <description>Get the IMEI, Wifi MAC and AndroidID on Device</description>
+    <author>Álvaro Herrero</author>
+    <license>Apache 2.0</license>
+    <keywords>cordova,imei, mac</keywords>
+    <repo>https://github.com/AlvaroHerrero/cordova-mac-imei.git</repo>
+    <js-module src="www/mac_imei_androidID.js" name="mac_imei_androidID">
+        <clobbers target="mac_imei_androidID" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="mac_imei_androidID" >
+                <param name="android-package" value="com.alvaroherrero.mac_imei_androidID"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+        </config-file>
+        <source-file src="src/android/mac_imei_androidID.java" target-dir="src/com/alvaroherrero/mac_imei_androidID" />
+    </platform>
+</plugin>
